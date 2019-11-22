@@ -51,6 +51,7 @@ export const NavbarPage = () => {
 					</Nav.Link>
 					<Nav.Link as={Link} to="/">
 						SIGN IN
+						<i className="fas fa-user" />
 					</Nav.Link>
 					<Form inline>
 						<FormControl type="text" placeholder="Find the best provider" className="mr-sm-2" />
