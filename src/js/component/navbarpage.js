@@ -49,16 +49,12 @@ export const NavbarPage = () => {
 					<Nav.Link as={Link} to="/">
 						PROVIDERS
 					</Nav.Link>
-					<NavDropdown title="LOGIN/SIGNUP" id="basic-nav-dropdown">
-						<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-						<NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-						<NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-						<NavDropdown.Divider />
-						<NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-					</NavDropdown>
+					<Nav.Link as={Link} to="/">
+						SIGN IN
+					</Nav.Link>
 					<Form inline>
 						<FormControl type="text" placeholder="Find the best provider" className="mr-sm-2" />
-						<Button variant="outline-info">Search</Button>
+						<Button variant="outline-dark">Search</Button>
 					</Form>
 				</Nav>
 			</Navbar.Collapse>

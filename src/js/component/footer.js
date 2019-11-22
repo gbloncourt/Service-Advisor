@@ -17,11 +17,8 @@ export const Footer = () => {
 					</MDBCol>
 					<MDBCol md="3" />
 					<MDBCol md="3">
-						<h5 className="title">Links</h5>
+						<h5 className="title">HOMEOWNER SERVICES</h5>
 						<Nav className="flex-column">
-							<Nav.Link as={Link} to="/">
-								HOME
-							</Nav.Link>
 							<Nav.Link as={Link} to="/">
 								SERVICES
 							</Nav.Link>
@@ -31,16 +28,16 @@ export const Footer = () => {
 						</Nav>
 					</MDBCol>
 					<MDBCol md="3">
-						<h5 className="title">Links</h5>
+						<h5 className="title">ABOUT SERVICE ADVISOR</h5>
 						<Nav className="flex-column">
 							<Nav.Link as={Link} to="/">
 								HOME
 							</Nav.Link>
 							<Nav.Link as={Link} to="/">
-								SERVICES
+								ABOUT US
 							</Nav.Link>
 							<Nav.Link as={Link} to="/">
-								PROVIDERS
+								CONTACT US
 							</Nav.Link>
 						</Nav>
 					</MDBCol>
