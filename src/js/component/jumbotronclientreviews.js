@@ -6,7 +6,7 @@ export const JumbotronClientReviews = () => {
 		<MDBJumbotron fluid>
 			<MDBContainer>
 				<h2 className="display-4">What clients say about our company</h2>
-				<p className="lead"></p>
+				<p className="lead" />
 			</MDBContainer>
 		</MDBJumbotron>
 	);
