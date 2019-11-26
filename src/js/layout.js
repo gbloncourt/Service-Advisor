@@ -5,11 +5,13 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
+import { Providers } from "./views/providers";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { NavbarPage } from "./component/navbarpage";
+import { JumbotronPage } from "./component/jumbotronpage";
 
 //create your first component
 export const Layout = () => {
@@ -22,9 +24,11 @@ export const Layout = () => {
 			<BrowserRouter>
 				<ScrollToTop>
 					<NavbarPage />
+					<JumbotronPage />
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route path="/demo" component={Demo} />
+						<Route path="/providers/:index" component={Providers} />
 						<Route path="/single/:theid" component={Single} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>

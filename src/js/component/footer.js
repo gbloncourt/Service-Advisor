@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 
 export const Footer = () => {
 	return (
-		<MDBFooter color="teal" className="font-small pt-4 mt-4 mdbfooter">
+		<MDBFooter className="font-small pt-4 mt-4 mdbfooter text-light">
 			<MDBContainer fluid className="text-center text-md-left">
 				<MDBRow>
 					<MDBCol md="3">
@@ -19,10 +19,10 @@ export const Footer = () => {
 					<MDBCol md="3">
 						<h5 className="title">HOMEOWNER SERVICES</h5>
 						<Nav className="flex-column">
-							<Nav.Link as={Link} to="/">
+							<Nav.Link as={Link} to="/" className="text-light">
 								SERVICES
 							</Nav.Link>
-							<Nav.Link as={Link} to="/">
+							<Nav.Link as={Link} to="/" className="text-light">
 								PROVIDERS
 							</Nav.Link>
 						</Nav>
@@ -30,13 +30,13 @@ export const Footer = () => {
 					<MDBCol md="3">
 						<h5 className="title">ABOUT SERVICE ADVISOR</h5>
 						<Nav className="flex-column">
-							<Nav.Link as={Link} to="/">
+							<Nav.Link as={Link} to="/" className="text-light">
 								HOME
 							</Nav.Link>
-							<Nav.Link as={Link} to="/">
+							<Nav.Link as={Link} to="/" className="text-light">
 								ABOUT US
 							</Nav.Link>
-							<Nav.Link as={Link} to="/">
+							<Nav.Link as={Link} to="/" className="text-light">
 								CONTACT US
 							</Nav.Link>
 						</Nav>
@@ -45,7 +45,11 @@ export const Footer = () => {
 			</MDBContainer>
 			<div className="footer-copyright text-center py-3">
 				<MDBContainer fluid>
-					&copy; {new Date().getFullYear()} Copyright: <a href="#"> serviceadvisor.com </a>
+					&copy; {new Date().getFullYear()} Copyright:{" "}
+					<a href="#" className="text-light">
+						{" "}
+						serviceadvisor.student{" "}
+					</a>
 				</MDBContainer>
 			</div>
 		</MDBFooter>

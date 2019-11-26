@@ -30,6 +30,36 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
+
+			const service = fetch(
+				"https://8080-e4790fc8-2480-455e-a07f-ee7b3d9e96ff.ws-us02.gitpod.io/wp-json/sample_api/v1/services"
+			)
+				.then(response => {
+					if (!response.ok) {
+						throw Error(response.statusText);
+					}
+					// Examine the text in the response
+					return response.json();
+				})
+				.catch(function(err) {
+					console.log("Fetch Error :-S", err);
+				});
+
+			Promise.all([service])
+				.then(data => {
+					setState({
+						...state,
+						store: {
+							...state.store,
+							service: data[0]
+							//events: data[1],
+							//session: data[2]
+						}
+					});
+				})
+				.catch(function(err) {
+					console.log("Fetch Error :-S", err);
+				});
 		}, []);
 
 		// the initial value for the context its not null anymore, but the current state of this component,
