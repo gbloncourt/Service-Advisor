@@ -1,0 +1,23 @@
+.card {
+    margin: 10px;
+}
+.servicelink{
+   color: #ab2e6d;
+   text-decoration: none;
+}
+
+.servicelink:hover{
+    color: #890547;
+    text-decoration: none;
+ }
+
+ .service-card {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all .1s ease-in;
+    min-height: 100%;    
+  }
+
+  .service-card:hover {
+    top: -2px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  }
