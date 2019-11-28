@@ -61,6 +61,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// 	serviceDescription:
 				// 		"Landscape Technicians perform various gardening duties in order to turn outdoor spaces into attractive areas. Skim through our reviews to look for your perfect landscaper now."
 				// }
+			],
+			provider: [
+				{
+					serviceID: "",
+					username: ""
+				}
 			]
 		},
 		actions: {

@@ -43,7 +43,7 @@ export const NavbarPage = () => {
 					<Nav.Link as={Link} to="/">
 						PROVIDERS
 					</Nav.Link>
-					<Nav.Link as={Link} to="/">
+					<Nav.Link as={Link} to="/login">
 						<i className="fas fa-user" style={{ padding: "0 5px 0 0" }} />
 					</Nav.Link>
 					<Form inline>

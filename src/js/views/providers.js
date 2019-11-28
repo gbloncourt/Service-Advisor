@@ -7,7 +7,7 @@ export const Providers = props => {
 		<div className="container">
 			<Context.Consumer>
 				{({ store, actions }) => {
-					return <p>{store.service[props.match.params.index].serviceTitle}</p>;
+					return <p>{store.service[props.match.params.index].acf.serviceTitle}</p>;
 				}}
 			</Context.Consumer>
 		</div>
