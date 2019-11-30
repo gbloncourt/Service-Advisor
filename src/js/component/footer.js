@@ -19,10 +19,10 @@ export const Footer = () => {
 					<MDBCol md="3">
 						<h5 className="title">HOMEOWNER SERVICES</h5>
 						<Nav className="flex-column">
-							<Nav.Link as={Link} to="/" className="text-light">
+							<Nav.Link as={Link} to="/services" className="text-light">
 								SERVICES
 							</Nav.Link>
-							<Nav.Link as={Link} to="/" className="text-light">
+							<Nav.Link as={Link} to="/providers" className="text-light">
 								PROVIDERS
 							</Nav.Link>
 						</Nav>

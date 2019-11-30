@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext.js";
 
+import { ProviderCard } from "../component/providercard.js";
+
 export const Providers = props => {
 	return (
 		<div className="container">
@@ -10,6 +12,9 @@ export const Providers = props => {
 					return <p>{store.service[props.match.params.index].acf.serviceTitle}</p>;
 				}}
 			</Context.Consumer>
+			<div className="row">
+				<ProviderCard />
+			</div>
 		</div>
 	);
 };

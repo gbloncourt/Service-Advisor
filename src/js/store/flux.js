@@ -63,10 +63,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// }
 			],
 			provider: [
-				{
-					serviceID: "",
-					username: ""
-				}
+				// {
+				// 	providerID: "1",
+				// 	serviceID: "2",
+				// 	username: "wszmuler",
+				// 	providerCompanyName: "ROOFING Co Inc.",
+				// 	providerPhoneNumber: "305-599-8752",
+				// 	providerWebsite: "roofingcoinc.com",
+				// 	providerRating: "5"
+				// }
 			]
 		},
 		actions: {

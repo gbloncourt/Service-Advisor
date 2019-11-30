@@ -6,6 +6,7 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import { Providers } from "./views/providers";
+import { Services } from "./views/services";
 import { Login } from "./views/login";
 import { JumbotronPage } from "./component/jumbotronpage";
 import injectContext from "./store/appContext";
@@ -29,6 +30,7 @@ export const Layout = () => {
 						<Route exact path="/" component={Home} />
 						<Route path="/demo" component={Demo} />
 						<Route path="/login" component={Login} />
+						<Route path="/services" component={Services} />
 						<Route path="/providers/:index" component={Providers} />
 						<Route path="/single/:theid" component={Single} />
 						<Route render={() => <h1>Not found!</h1>} />

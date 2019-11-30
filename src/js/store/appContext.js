@@ -30,9 +30,10 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
-			const api = "https://8080-e4790fc8-2480-455e-a07f-ee7b3d9e96ff.ws-us02.gitpod.io/wp-json/sample_api/v1";
+			//const api = "https://8080-e4790fc8-2480-455e-a07f-ee7b3d9e96ff.ws-us02.gitpod.io/wp-json/sample_api/v1";
+			const api = "http://gbsoftinc.com/wpgb/wp-json/wp/v2";
 
-			const service = fetch(api + "/services")
+			const service = fetch(api + "/service")
 				.then(response => {
 					if (!response.ok) {
 						throw Error(response.statusText);
@@ -44,7 +45,7 @@ const injectContext = PassedComponent => {
 					console.log("Fetch Error :-S", err);
 				});
 
-			const provider = fetch(api + "/providers")
+			const provider = fetch(api + "/provider")
 				.then(response => {
 					if (!response.ok) {
 						throw Error(response.statusText);
@@ -55,18 +56,6 @@ const injectContext = PassedComponent => {
 				.catch(function(err) {
 					console.log("Fetch Error :-S", err);
 				});
-
-			// const user = fetch("https://8080-e4790fc8-2480-455e-a07f-ee7b3d9e96ff.ws-us02.gitpod.io/wp/v2/users")
-			// 	.then(response => {
-			// 		if (!response.ok) {
-			// 			throw Error(response.statusText);
-			// 		}
-			// 		// Examine the text in the response
-			// 		return response.json();
-			// 	})
-			// 	.catch(function(err) {
-			// 		console.log("Fetch Error :-S", err);
-			// 	});
 
 			Promise.all([service, provider])
 				.then(data => {
