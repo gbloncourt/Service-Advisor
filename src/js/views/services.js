@@ -29,7 +29,6 @@ export const Services = () => {
 						}}
 					</Context.Consumer>
 				</div>
-				<div className="conteiner">{/*<JumbotronClientReviews />*/}</div>
 			</div>
 		</div>
 	);

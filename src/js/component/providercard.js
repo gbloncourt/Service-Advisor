@@ -1,47 +1,48 @@
 import React from "react";
-import { Context } from "../store/appContext.js";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
 
 import "../../styles/providercard.scss";
 
-export const ProviderCard = () => {
+export function ProviderCard(props) {
 	return (
-		<Context.Consumer>
-			{({ store, actions }) => {
-				return store.provider.map((provider, index) => {
-					return (
-						<div className="col-md-4" key={index}>
-							<div className="card profile-card-3">
-								index={index}
-								<div className="background-block">
-									<img
-										src="http://gbsoftinc.com/wpgb/wp-content/uploads/2019/11/landscape_service.jpg"
-										alt="profile-sample1"
-										className="background"
-									/>
-								</div>
-								<div className="profile-thumb-block">
-									<img
-										src="https://randomuser.me/api/portraits/men/41.jpg"
-										alt="profile-image"
-										className="profile"
-									/>
-								</div>
-								<div className="card-content">
-									<h2>
-										{provider.acf.providercompanyname}
-										<small>{provider.acf.username}</small>
-										<small>Phone: {provider.acf.providerphonenumber}</small>
-										<small>Email: </small>
-										<small>Website: {provider.acf.providerwebsite}</small>
-									</h2>
-								</div>
-							</div>
-						</div>
-					);
-				});
-			}}
-		</Context.Consumer>
+		<div className="col-md-4">
+			<div className="card profile-card-3">
+				<div className="background-block">
+					<img
+						src="http://gbsoftinc.com/wpgb/wp-content/uploads/2019/11/landscape_service.jpg"
+						//src={props.serviceBackgroundImg}
+						//alt="profile-sample1"
+						className="background"
+					/>
+				</div>
+				<div className="profile-thumb-block">
+					<img
+						//src={provider.acf.avatar}
+						src="http://gbsoftinc.com/wpgb/wp-content/uploads/2019/11/22.jpg"
+						alt="profile-image"
+						className="profile"
+					/>
+				</div>
+				<div className="card-content">
+					<h2>
+						{providerCompanyName}
+						<small>{providerUserName}</small>
+						<small>Phone: {providerPhoneNumber}</small>
+						<small>Email: </small>
+						<small>Website: {providerWebsite}</small>
+					</h2>
+				</div>
+			</div>
+		</div>
 	);
+}
+
+ProviderCard.propTypes = {
+	providerCompanyName: PropTypes.string,
+	providerUserName: PropTypes.string,
+	providerPhoneNumber: PropTypes.string,
+	providerWebsite: PropTypes.string,
+	providerAvatar: PropTypes.string,
+	index: PropTypes.number
 };

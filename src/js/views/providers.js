@@ -1,28 +1,40 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Context } from "../store/appContext.js";
-
+import Jumbotron from "react-bootstrap/Jumbotron";
 import { ProviderCard } from "../component/providercard.js";
 
-export const Providers = props => {
+export const Providers = () => {
 	return (
-		<div className="container">
-			<Context.Consumer>
-				{({ store, actions }) => {
-					return <p>{store.service[props.match.params.index].acf.serviceTitle}</p>;
-				}}
-			</Context.Consumer>
-			<div className="row">
-				<ProviderCard />
+		<div>
+			<div className="container">
+				<div className="row">
+					<Context.Consumer>
+						{({ store }) => {
+							return store.provider.map((provider, index) => {
+								// <Jumbotron className="bg-cover">
+								// 	<h1>{store.service[props.match.params.index].acf.serviceTitle}</h1>
+								// </Jumbotron>;
+								if (provider) {
+									return (
+										<div className="col-12 col-sm-6 col-lg-4" key={index}>
+											<ProviderCard
+												index={index}
+												providerCompanyName={provider.acf.providercompanyname}
+												providerUserName={provider.acf.username}
+												providerPhoneNumber={provider.acf.providerphonenumber}
+												providerWebsite={provider.acf.providerwebsite}
+												providerAvatar={provider.acf.avatar}
+											/>
+										</div>
+									);
+								} else {
+									return <h5>Still Loading...</h5>;
+								}
+							});
+						}}
+					</Context.Consumer>
+				</div>
 			</div>
 		</div>
 	);
-};
-
-Providers.propTypes = {
-	serviceTitle: PropTypes.string,
-	serviceDescription: PropTypes.string,
-	serviceID: PropTypes.number,
-	serviceBackgroundImg: PropTypes.string,
-	match: PropTypes.object
 };

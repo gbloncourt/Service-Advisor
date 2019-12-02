@@ -35,3 +35,15 @@ body {
 .all-service-card{
     padding-bottom: 30px;
 }
+
+.bg-cover {
+    //background-image: url('http://gbsoftinc.com/wpgb/wp-content/uploads/2019/11/landscape_service.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: -2;
+    margin-top: 10px;
+   //text-align: center;
+    border-radius: 0px;
+}
+

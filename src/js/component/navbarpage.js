@@ -40,7 +40,7 @@ export const NavbarPage = () => {
 					<Nav.Link as={Link} to="/services">
 						SERVICES
 					</Nav.Link>
-					<Nav.Link as={Link} to="/">
+					<Nav.Link as={Link} to="/providers">
 						PROVIDERS
 					</Nav.Link>
 					<Nav.Link as={Link} to="/login">
