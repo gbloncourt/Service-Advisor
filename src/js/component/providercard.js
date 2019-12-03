@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import StarRatingComponent from "react-star-rating-component";
 
 import "../../styles/providercard.scss";
 
@@ -11,14 +12,13 @@ export function ProviderCard(props) {
 				<div className="background-block">
 					<img
 						src="http://gbsoftinc.com/wpgb/wp-content/uploads/2019/11/landscape_service.jpg"
-						//src={props.serviceBackgroundImg}
 						//alt="profile-sample1"
 						className="background"
 					/>
 				</div>
 				<div className="profile-thumb-block">
 					<img
-						src={props.providerAvatar}
+						src={props.providerAvatar.url}
 						//src="http://gbsoftinc.com/wpgb/wp-content/uploads/2019/11/22.jpg"
 						alt="profile-image"
 						className="profile"
@@ -32,7 +32,15 @@ export function ProviderCard(props) {
 						<small>Phone: {props.providerPhoneNumber}</small>
 						<small>Email: </small>
 						<small>Website: {props.providerWebsite}</small>
-						<small>Rating: {props.providerRating}</small>
+						<small>
+							Rating:
+							<StarRatingComponent
+								name="rate1"
+								editing={false}
+								starCount={5}
+								value={props.providerRating}
+							/>
+						</small>
 					</h2>
 				</div>
 			</div>

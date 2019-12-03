@@ -57,6 +57,18 @@ const injectContext = PassedComponent => {
 					console.log("Fetch Error :-S", err);
 				});
 
+			const user = fetch(api + "/user/id")
+				.then(response => {
+					if (!response.ok) {
+						throw Error(response.statusText);
+					}
+					// Examine the text in the response
+					return response.json();
+				})
+				.catch(function(err) {
+					console.log("Fetch Error :-S", err);
+				});
+
 			Promise.all([service, provider])
 				.then(data => {
 					setState({
