@@ -24,6 +24,8 @@ export const Providers = () => {
 												providerPhoneNumber={provider.acf.providerphonenumber}
 												providerWebsite={provider.acf.providerwebsite}
 												providerAvatar={provider.acf.avatar}
+												providerRating={provider.acf.providerrating}
+												providerUserID={provider.acf.userid}
 											/>
 										</div>
 									);
