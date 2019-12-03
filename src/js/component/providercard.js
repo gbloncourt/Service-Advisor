@@ -33,13 +33,16 @@ export function ProviderCard(props) {
 						<small>Email: </small>
 						<small>Website: {props.providerWebsite}</small>
 						<small>
-							Rating:
-							<StarRatingComponent
-								name="rate1"
-								editing={false}
-								starCount={5}
-								value={props.providerRating}
-							/>
+							<span>
+								Rating:
+								<StarRatingComponent
+									name="rate1"
+									editing={false}
+									starCount={5}
+									value={props.providerRating}
+									starColor="#feb400"
+								/>
+							</span>
 						</small>
 					</h2>
 				</div>

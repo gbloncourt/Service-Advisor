@@ -5,7 +5,7 @@
   overflow: hidden;
   width: 100%;
   text-align: center;
-  //height:500px;
+  //height:368px;
   border:none;
 }
 .profile-card-3 .background-block {
@@ -69,11 +69,11 @@
   margin-top:10px;
 }
 .profile-card-3 i {
-  display: inline-block;
-    font-size: 16px;
-    color: #232323;
+  //display: inline-block;
+    font-size: 30px;
+    //color: #232323;
     text-align: center;
-    border: 1px solid #232323;
+    //border: 1px solid #232323;
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -88,8 +88,6 @@
 .profile-card-3 .icon-block a{
     text-decoration:none;
 }
-.profile-card-3 i:hover {
-  background-color:#232323;
-  color:#fff;
-  text-decoration:none;
-}
+
+
+

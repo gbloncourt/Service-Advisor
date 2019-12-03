@@ -20,7 +20,7 @@ export const Providers = () => {
 											<ProviderCard
 												index={index}
 												providerCompanyName={provider.acf.providercompanyname}
-												providerUserName={provider.acf.username}
+												//providerUserName={provider.acf.username}
 												providerPhoneNumber={provider.acf.providerphonenumber}
 												providerWebsite={provider.acf.providerwebsite}
 												providerAvatar={provider.acf.avatar}
