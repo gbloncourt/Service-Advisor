@@ -23,19 +23,13 @@ import logo from "./../../img/Service_Advisor_logo.png";
 
 {
 	/*
-*/
+	 */
 }
 export const NavbarPage = () => {
 	return (
 		<Navbar bg="mycolor" expand="lg" sticky="top">
 			<Navbar.Brand as={Link} to="/">
-				<img
-					src={logo}
-					classNameName="d-inline-block align-top"
-					width="282"
-					height="60"
-					alt="Service Advisor"
-				/>
+				<img src={logo} className="d-inline-block align-top" width="282" height="60" alt="Service Advisor" />
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
@@ -43,15 +37,14 @@ export const NavbarPage = () => {
 					<Nav.Link as={Link} to="/">
 						HOME
 					</Nav.Link>
-					<Nav.Link as={Link} to="/">
+					<Nav.Link as={Link} to="/services">
 						SERVICES
 					</Nav.Link>
-					<Nav.Link as={Link} to="/">
+					<Nav.Link as={Link} to="/providers">
 						PROVIDERS
 					</Nav.Link>
-					<Nav.Link as={Link} to="/">
-						SIGN IN
-						<i className="fas fa-user" />
+					<Nav.Link as={Link} to="/login">
+						<i className="fas fa-user" style={{ padding: "0 5px 0 0" }} />
 					</Nav.Link>
 					<Form inline>
 						<FormControl type="text" placeholder="Find the best provider" className="mr-sm-2" />

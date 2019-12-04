@@ -19,13 +19,31 @@
 }
 
 body {
-    background-color: #f8f8f8;
+   // background-color: #f8f8f8;
+   background: url(../img/body_bkg_img.png) no-repeat center center fixed;
+   background-size: cover;
 }
 
 .mdbfooter{
-    background-color: #afafaf;
+    background-color: rgba(156, 39, 176, 0.7);
 }
 
 .bg-mycolor {
     background-color: #e6ebef;;
 }
+
+.all-service-card{
+    padding-bottom: 30px;
+}
+
+.bg-cover {
+    //background-image: url('http://gbsoftinc.com/wpgb/wp-content/uploads/2019/11/landscape_service.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: -2;
+    margin-top: 10px;
+   //text-align: center;
+    border-radius: 0px;
+}
+
