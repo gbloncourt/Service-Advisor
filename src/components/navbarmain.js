@@ -5,7 +5,7 @@ import { Nav, Navbar, NavDropdown, Form, FormControl, Button  } from 'react-boot
 import LoginDropDown from './logindropdown';
 
 
-import "../index.css"
+import "../index.css";
 
 
 import logo from "../assets/img/Service_Advisor_logo.png";
@@ -14,7 +14,7 @@ import { thisExpression } from "@babel/types";
 class NavbarMain extends Component {
   state = {
     loggedUserFullName: "",
-    userloggedin : false,
+    userloggedin : false
   };
 
 
@@ -25,9 +25,9 @@ class NavbarMain extends Component {
       this.setState(
         {
           loggedUserFullName: localStorage.getItem('userFullName'),
-          userloggedin: true,
+          userloggedin: true
         }
-      )
+      );
     }
   }
 
@@ -63,15 +63,15 @@ render() {
 
     // );
 
-  }
+  };
   const DisplayLoginLogout = () => {
     return(
              this.state.userloggedin? 
                <LoginDropDown isLoggedIn = {this.state.userloggedin} />
             :  <LoginDropDown isLoggedIn = {this.state.userloggedin} />
             
-       )
-  }
+       );
+  };
 
 
   return (
@@ -91,6 +91,7 @@ render() {
                   <Nav.Link href="/">HOME</Nav.Link>
                   <Nav.Link href="/services">SERVICES</Nav.Link>
                   <Nav.Link href="/providers">PROVIDERS</Nav.Link>
+                  <Nav.Link href="/signup">SIGN UP</Nav.Link>
                  
                    <NavDropdown  title={ 
                         <span> {this.state.userloggedin? 'Welcome '+this.state.loggedUserFullName : ''} <i className="fa fa-user"></i></span> } id="basic-nav-dropdown" >
