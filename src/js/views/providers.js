@@ -3,7 +3,6 @@ import { Context } from "../store/appContext.js";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import { ProviderCard } from "../component/providercard.js";
 import PropTypes from "prop-types";
-import { match } from "minimatch";
 
 export const Providers = props => {
 	return (
@@ -12,13 +11,16 @@ export const Providers = props => {
 				<div className="row">
 					<Context.Consumer>
 						{({ store }) => {
+							let i = props.match.params.index;
 							return store.provider.map((provider, index) => {
-								// <Jumbotron className="bg-cover">
-								// 	<h1>{store.service[props.match.params.index].acf.serviceTitle}</h1>
-								// </Jumbotron>;
+								{
+									/* <h1>{store.service[i] && store.service[i].acf.serviceTitle}</h1> */
+								}
+
 								if (provider) {
 									return (
 										<div className="col-12 col-sm-6 col-lg-4" key={index}>
+											{/* <h1>Hello: {store.service[i] && store.service[i].acf.serviceTitle}</h1> */}
 											<ProviderCard
 												index={props.match.params.index}
 												providerCompanyName={provider.acf.providercompanyname}
@@ -54,3 +56,10 @@ Providers.propTypes = {
 	index: PropTypes.number,
 	match: PropTypes.object
 };
+
+<Context.Consumer>
+	{({ store }) => {
+		let i = props.match.params.index;
+		return <h1>{store.service[i] && store.service[i].acf.serviceTitle}</h1>;
+	}}
+</Context.Consumer>;
