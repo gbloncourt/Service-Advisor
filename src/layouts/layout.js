@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import injectContext from "../store/appcontext";
 import { Providers } from "../views/providers";
-import { Layoutregister } from "../layouts/layoutforsignup";
 
+import  Signup from "../views/signup";
 import Testmd from "../components/testmd";
 
 
@@ -32,7 +32,7 @@ export const Layout = () => {
 						<Route exact path="/home" component={Home} />
                         {/* <Route path="/signin" component={Signin} />*/}
 						<Route path="/providers/:index" component={Providers} />
-						<Route path="/layoutforsignup" component={Layoutregister} />
+						<Route path="/signup" component={Signup} />
 						<Route path="/testmd/:index" component={Testmd} />
 						{/*<Route path="/profile" component={Profile} /> */}
 						<Route render={() => <h1>Not found!</h1>} />
