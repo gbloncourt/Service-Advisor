@@ -88,6 +88,11 @@ export function ProviderCard(props) {
 											/>
 										</span>
 									</small>
+									<small>
+										<Link to={"#"} className="servicelink">
+											<span>Leave a review</span>
+										</Link>
+									</small>
 								</h2>
 							</div>
 						</div>

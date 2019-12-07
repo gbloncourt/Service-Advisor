@@ -138,7 +138,7 @@ class LoginDropDown extends Component {
 
         let loggedInDropdown = [
             <NavDropdown.Item >View my profile</NavDropdown.Item>,
-            <NavDropdown.Item >Request a service</NavDropdown.Item>,
+            // <NavDropdown.Item >Request a service</NavDropdown.Item>,
             <NavDropdown.Divider />,
             <NavDropdown.Item  eventKey = '99' onClick = {this.handleDropdownItemClick} >Log out</NavDropdown.Item>,
         ]
