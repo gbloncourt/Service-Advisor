@@ -49,11 +49,12 @@ export function ProviderCard(props) {
 						<div className="card profile-card-3">
 							<div className="background-block">
 								<img
-									src={
-										store.service[props.index] &&
-										store.service[props.index].acf.serviceBackgroundImg
-									}
-									// src="http://gbsoftinc.com/wpgb/wp-content/uploads/2019/11/landscape_service.jpg"
+									// src={
+									// 	store.service[props.index] &&
+									// 	store.service[props.index].acf.serviceBackgroundImg
+									// }
+
+									src="http://gbsoftinc.com/wpgb/wp-content/uploads/2019/12/provider_bkg_image-1.png"
 									//alt="profile-sample1"
 									className="background"
 								/>
