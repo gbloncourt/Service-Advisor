@@ -1,0 +1,23 @@
+body, html {
+  height: 100%;
+  }
+
+#classicformpage .view {
+    background-image: url(../../img/imagebackground2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+  }
+
+  #classicformpage .card {
+    background-color: rgba(103, 104, 100, 0.404);
+  }
+  
+  #classicformpage h6 {
+    line-height: 1.7;
+  }
+  
+  #classicformpage label {
+    color: #fff !important;
+  }
