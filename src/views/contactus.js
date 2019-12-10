@@ -1,8 +1,10 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from "mdbreact";
+import { Container, Row, Col} from 'react-bootstrap';
 
-const ContactUs = () => {
+export const ContactUs = () => {
 	return (
+		<Container >
 		<section className="contact-section my-5">
 			<MDBCard>
 				<MDBRow>
@@ -10,39 +12,41 @@ const ContactUs = () => {
 						<MDBCardBody className="form">
 							<h3 className="mt-4">
 								<MDBIcon icon="envelope" className="pr-2" />
-								Contact Usss:
+								Contact Us:
 							</h3>
 							<MDBRow>
 								<MDBCol md="6">
 									<div className="md-form mb-0">
-										<MDBInput type="text" id="form-contact-name" label="Name" />
+										<MDBInput type="text" id="form-contact-name" label="Name" name="name" />
 									</div>
 								</MDBCol>
 								<MDBCol md="6">
 									<div className="md-form mb-0">
-										<MDBInput type="text" id="form-contact-email" label="Email" />
+										<MDBInput type="text" id="form-contact-email" label="Email" name="email" />
 									</div>
 								</MDBCol>
 							</MDBRow>
 							<MDBRow>
 								<MDBCol md="6">
 									<div className="md-form mb-0">
-										<MDBInput type="text" id="form-contact-phone" label="Phone" />
+										<MDBInput type="text" id="form-contact-phone" label="Phone" name="phone"/>
 									</div>
 								</MDBCol>
 								<MDBCol md="6">
 									<div className="md-form mb-0">
-										<MDBInput type="text" id="form-contact-company" label="Company Name" />
+										<MDBInput type="text" id="form-contact-company" label="Company Name" name="companyName"/>
 									</div>
 								</MDBCol>
 							</MDBRow>
 							<MDBRow>
 								<MDBCol md="12">
 									<div className="md-form mb-0">
-										<MDBInput type="textarea" id="form-contact-message" label="Message" />
-										<MDBBtn rounded color="blue">
+										<MDBInput type="textarea" id="form-contact-message" label="Message" name="message"/>
+										{/* <MDBBtn rounded color="blue">
 											<MDBIcon icon="paper-plane" />
 										</MDBBtn>
+										 */}
+										<MDBBtn color="secondary">Send</MDBBtn> 
 									</div>
 								</MDBCol>
 							</MDBRow>
@@ -79,7 +83,7 @@ const ContactUs = () => {
 								</li>
 								<li className="list-inline-item">
 									<a href="#!" className="p-2 fa-lg w-ic">
-										<MDBIcon fab icon="linkedin-in" />
+										<MDBIcon fab icon="linkedin-in" color="secondary" />
 									</a>
 								</li>
 								<li className="list-inline-item">
@@ -93,6 +97,6 @@ const ContactUs = () => {
 				</MDBRow>
 			</MDBCard>
 		</section>
+		</Container>	
 	);
 };
-export default ContactUs;
