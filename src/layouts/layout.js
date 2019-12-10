@@ -5,6 +5,8 @@ import { Providers } from "../views/providers";
 import { ProvidersMain } from "../views/providersmain";
 import { Services } from "../views/services";
 import { ContactUs } from "../views/contactus";
+import About from "../views/about";
+import Signup from "../views/signup";
 
 import Testmd from "../components/testmd"
 
@@ -38,6 +40,8 @@ export const Layout = () => {
 						<Route path="/providers/:index" component={Providers} />
 						<Route path="/testmd/:index" component={Testmd} />
 						<Route path="/contactus" component={ContactUs} />
+						<Route path="/about" component={About} />
+						<Route path="/signup" component={Signup} />
 						{/*<Route path="/profile" component={Profile} /> */}
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
