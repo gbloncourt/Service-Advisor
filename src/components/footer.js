@@ -33,7 +33,7 @@ export const Footer = () => {
 							<Nav.Link as={Link} to="/" className="text-light">
 								HOME
 							</Nav.Link>
-							<Nav.Link as={Link} to="/" className="text-light">
+							<Nav.Link as={Link} to="/about" className="text-light">
 								ABOUT US
 							</Nav.Link>
 							<Nav.Link as={Link} to="/contactus" className="text-light">

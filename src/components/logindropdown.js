@@ -193,7 +193,7 @@ class LoginDropDown extends Component {
 
                 </Form>
                 <NavDropdown.Divider />
-                <NavDropdown.Item> New here ? <b>Join Us</b> </NavDropdown.Item>
+                <NavDropdown.Item href="/signup"> New here ? <b>Join Us</b> </NavDropdown.Item>
 
             </React.Fragment> 
 

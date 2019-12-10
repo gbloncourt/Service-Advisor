@@ -56,7 +56,8 @@
   border: 2px solid rgba(255, 255, 255, 1);
   -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
-  z-index:99999;
+  z-index:99999; 
+  
 }
 .profile-card-3 h2 {
   margin: 0 0 5px;
@@ -69,11 +70,11 @@
   margin-top:10px;
 }
 .profile-card-3 i {
-  //display: inline-block;
+  /* display: inline-block; */
     font-size: 30px;
-    //color: #232323;
+    /* color: #232323; */
     text-align: center;
-    //border: 1px solid #232323;
+    /* border: 1px solid #232323; */
     width: 30px;
     height: 30px;
     line-height: 30px;

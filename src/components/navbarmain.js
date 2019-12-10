@@ -76,7 +76,7 @@ render() {
 
   return (
     <Router>
-          <Navbar bg="light" expand="lg" sticky = "fixed">
+          <Navbar bg="light" expand="lg" sticky = "top">
            
             <Navbar.Brand href="/">
                <img src={logo} className="img-fluid" width="260" alt="Service Advisor" />
