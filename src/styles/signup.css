@@ -3,7 +3,7 @@ body, html {
   }
 
 #classicformpage .view {
-    background-image: url(../../img/imagebackground2.jpg);
+    background-image: url(http://gbsoftinc.com/wpgb/wp-content/uploads/2019/12/imagebackground2-scaled.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -11,7 +11,8 @@ body, html {
   }
 
   #classicformpage .card {
-    background-color: rgba(103, 104, 100, 0.404);
+    /* background-color: rgba(103, 104, 100, 0.404); */
+    background-color: #6c757d;
   }
   
   #classicformpage h6 {
