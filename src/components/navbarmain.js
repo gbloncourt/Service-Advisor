@@ -76,7 +76,7 @@ render() {
 
   return (
     <Router>
-          <Navbar bg="light" expand="lg" sticky = "top">
+          <Navbar bg="light" expand="lg" sticky = "fixed">
            
             <Navbar.Brand href="/">
                <img src={logo} className="img-fluid" width="260" alt="Service Advisor" />
@@ -90,7 +90,7 @@ render() {
                  
                   <Nav.Link href="/">HOME</Nav.Link>
                   <Nav.Link href="/services">SERVICES</Nav.Link>
-                  <Nav.Link href="/providers">PROVIDERS</Nav.Link>
+                  <Nav.Link href="/providersmain">PROVIDERS</Nav.Link>
                  
                    <NavDropdown  title={ 
                         <span> {this.state.userloggedin? 'Welcome '+this.state.loggedUserFullName : ''} <i className="fa fa-user"></i></span> } id="basic-nav-dropdown" >

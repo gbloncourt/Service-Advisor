@@ -1,8 +1,9 @@
 import React from "react";
 import { MDBJumbotron, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCardTitle, MDBIcon } from "mdbreact";
-import { Jumbotron, Container, Button } from "react-bootstrap"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faAddressCard} from '@fortawesome/free-solid-svg-icons' 
+import { Jumbotron, Container, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faAddressCard} from '@fortawesome/free-solid-svg-icons'; 
+import { Link } from "react-router-dom";
 
 import '../index.css'
 
@@ -21,10 +22,10 @@ export const JumbotronPage = () => {
 					</p>
 				</Container>
 				<Container fluid className="text-white text-center ">
-						<Button outline color="white" className=" m-3 p-2 btn-dark ">
+						<Button outline color="white" className=" m-3 p-2 btn-dark " as={Link} to="/services">
 							<FontAwesomeIcon icon={faHome} size='2x'/> POPULAR SERVICES
 						</Button>	
-						<Button outline color="white" className=" m-3 p-2 btn-warning ">
+						<Button outline color="white" className=" m-3 p-2 btn-warning " as={Link} to="/providersmain">
 							<FontAwesomeIcon icon={faAddressCard} size='2x' /> FIND PROS
 						</Button>	
 						

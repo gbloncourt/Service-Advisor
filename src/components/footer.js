@@ -22,7 +22,7 @@ export const Footer = () => {
 							<Nav.Link as={Link} to="/services" className="text-light">
 								SERVICES
 							</Nav.Link>
-							<Nav.Link as={Link} to="/providers" className="text-light">
+							<Nav.Link as={Link} to="/providersmain" className="text-light">
 								PROVIDERS
 							</Nav.Link>
 						</Nav>
@@ -36,7 +36,7 @@ export const Footer = () => {
 							<Nav.Link as={Link} to="/" className="text-light">
 								ABOUT US
 							</Nav.Link>
-							<Nav.Link as={Link} to="/" className="text-light">
+							<Nav.Link as={Link} to="/contactus" className="text-light">
 								CONTACT US
 							</Nav.Link>
 						</Nav>
