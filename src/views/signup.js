@@ -1,5 +1,13 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBNavbarToggler,
+  MDBCollapse,
   MDBMask,
   MDBRow,
   MDBCol,
@@ -10,8 +18,11 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
+  MDBFormInline,
   MDBAnimation
 } from "mdbreact";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import "../styles/signup.css";
 
 class Signup extends React.Component {
@@ -49,15 +60,12 @@ class Signup extends React.Component {
                     Sign up right now!
                   </h1>
                   <hr className="hr-light" />
-                  <h6 className="mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Rem repellendus quasi fuga nesciunt dolorum nulla magnam
-                    veniam sapiente, fugiat! Commodi sequi non animi ea dolor
-                    molestiae, quisquam iste, maiores. Nulla.
-                  </h6>
-                  <MDBBtn outline color="white">
+                  <h5 className="mb-4">
+                  Check user-based reviews to find the best local service providers, like roofers, plumbers, handymen, and more.
+                  </h5>
+                  <Button variant="light" as={Link} to="/about">
                     About Us
-                  </MDBBtn>
+                  </Button>
                 </MDBAnimation>
 
                 <MDBCol md="6" xl="5" className="mb-4">
