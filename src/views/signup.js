@@ -1,13 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
   MDBMask,
   MDBRow,
   MDBCol,
@@ -18,10 +10,9 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  MDBFormInline,
   MDBAnimation
 } from "mdbreact";
-import "../styles/../views/styles/signup.css";
+import "../styles/signup.css";
 
 class Signup extends React.Component {
   state = {
