@@ -21,9 +21,12 @@ import {
   MDBFormInline,
   MDBAnimation
 } from "mdbreact";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "../styles/signup.css";
+
+
+import apiConfig from '../utils';
 
 
 import FormError from '../components/formerror';
@@ -38,13 +41,68 @@ class Signup extends React.Component {
       email: '',
       passOne: '',
       passTwo: '',
-      errorMessage: null
+      errorMessage: null,
+      rest_route : '/simple-jwt-login/v1/register',
+      userRegistered : false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
+  addNewUser (registrationInfo){
+
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const url = apiConfig.apiSimpleJWT+
+          '/?rest_route='+ `${registrationInfo.rest_route}`+
+          '&email='+ registrationInfo.email+
+          '&password='+registrationInfo.password+
+          '&gbAuthKey='+registrationInfo.gbAuthKey;
+
+    const fetchUsers = fetch(`${proxyUrl+url}`,
+        {
+            method : 'post',
+             headers : { 
+               'Content-Type': 'application/json',
+               'Accept' : 'application/json',
+            //     "Authorization" : "Bearer k|SIG^tf,*S/b9yrjJ`a#)T$|^liNbyW.j6mAQVUJ>@`oBk;#|miwC%4OT~X7AB",
+            //      "Access-Control-Allow-Origin" : "*"
+              },
+            // body : JSON.stringify ({
+            //     'rest_route' : `${registrationInfo.rest_route}`,
+            //     //'token' : 'k|SIG^tf,*S/b9yrjJ`a#)T$|^liNbyW.j6mAQVUJ>@`oBk;#|miwC%4OT~X7AB',
+            //     // 'username' : this.state.displayname,
+            //     'email' : registrationInfo.email,
+            //     'password': registrationInfo.password,
+            //     'gbAuthKey' : registrationInfo.gbAuthKey,
+            //  })
+
+                // JSON.stringify(registrationInfo),
+        }
+        )
+				.then(response => {
+					if (!response.ok) {
+						throw Error(response.statusText);
+					}
+					// Examine the text in the response
+          return response.json();
+          console.log(response)
+				})
+				.catch(function(err) {
+					console.log("Fetch Error :-S", err);
+				});
+
+				Promise.all([fetchUsers])
+				.then(data => {
+          this.setState({userRegistered : true})
+          return data[0];
+          
+				})
+				.catch(function(err) {
+					console.log("Error with resolving promises.", err);
+				});
+	}
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
@@ -67,28 +125,16 @@ class Signup extends React.Component {
 
     handleSubmit = (e) => {
       var registrationInfo = {
-        displayName: this.state.displayName,
+        rest_route: '/simple-jwt-login/v1/register',
+        //username: this.state.displayName,
         email: this.state.email,
-        password: this.state.passOne
+        password: this.state.passOne,
+        gbAuthKey : 'v3YCc$PT',
       };
+      console.log(registrationInfo);
+      this.addNewUser(registrationInfo);
       e.preventDefault();
-  
-      // firebase
-      //   .auth()
-      //   .createUserWithEmailAndPassword(
-      //     registrationInfo.email,
-      //     registrationInfo.password
-      //   )
-      //   .then(() => {
-      //     this.props.registerUser(registrationInfo.displayName);
-      //   })
-      //   .catch(error => {
-      //     if (error.message !== null) {
-      //       this.setState({ errorMessage: error.message });
-      //     } else {
-      //       this.setState({ errorMessage: null });
-      //     }
-      //   });
+
     }
 
   render() {
@@ -99,13 +145,18 @@ class Signup extends React.Component {
         onClick={this.toggleCollapse("navbarCollapse")}
       />
     );
+    if (this.state.userRegistered === true) {
+      return <Redirect to='/' />
+    }
+    
     return (
-      <form id="classicformpage" onSubmit={this.handleSubmit}>
+      
         
-        <input type='hidden' value='something'/>
+      <form id="classicformpage" onSubmit={this.handleSubmit}>  
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
             <MDBContainer>
+
               <MDBRow>
                 <MDBAnimation
                   type="fadeInLeft"
@@ -178,7 +229,7 @@ class Signup extends React.Component {
                               ) : null}
                         </MDBRow>
                         <div className="text-center mt-4">
-                          <MDBBtn outline color="white">Sign Up</MDBBtn>
+                          <MDBBtn outline color="white" type = 'submit'>Sign Up</MDBBtn>
                           <hr className="hr-light" />
                           <div className="text-center d-flex justify-content-center white-label">
                             <a href="#!" className="p-2 m-2">
@@ -204,15 +255,17 @@ class Signup extends React.Component {
                             </a>
                           </div>
                         </div>
+      
                       </MDBCardBody>
                     </MDBCard>
                   </MDBAnimation>
                 </MDBCol>
               </MDBRow>
+              
             </MDBContainer>
           </MDBMask>
         </MDBView>
-      </form>
+        </form>
     );
   }
 }
