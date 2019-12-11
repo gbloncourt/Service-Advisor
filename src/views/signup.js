@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import {
-  MDBNavbar,
+  MDBForm,
   MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavItem,
@@ -25,15 +25,71 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "../styles/signup.css";
 
+
+import FormError from '../components/formerror';
+
 class Signup extends React.Component {
-  state = {
-    collapseID: ""
-  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapseID: "",
+      displayName: '',
+      email: '',
+      passOne: '',
+      passTwo: '',
+      errorMessage: null
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     }));
+
+    handleChange = (e) => {
+      const itemName = e.target.name;
+      const itemValue = e.target.value;
+  
+      this.setState({ [itemName]: itemValue }, () => {
+        if (this.state.passOne !== this.state.passTwo) {
+          this.setState({ errorMessage: 'Passwords no not match' });
+        } else {
+          this.setState({ errorMessage: null });
+        }
+      });
+    }
+
+
+    handleSubmit = (e) => {
+      var registrationInfo = {
+        displayName: this.state.displayName,
+        email: this.state.email,
+        password: this.state.passOne
+      };
+      e.preventDefault();
+  
+      // firebase
+      //   .auth()
+      //   .createUserWithEmailAndPassword(
+      //     registrationInfo.email,
+      //     registrationInfo.password
+      //   )
+      //   .then(() => {
+      //     this.props.registerUser(registrationInfo.displayName);
+      //   })
+      //   .catch(error => {
+      //     if (error.message !== null) {
+      //       this.setState({ errorMessage: error.message });
+      //     } else {
+      //       this.setState({ errorMessage: null });
+      //     }
+      //   });
+    }
 
   render() {
     const overlay = (
@@ -44,9 +100,9 @@ class Signup extends React.Component {
       />
     );
     return (
-      <div id="classicformpage">
+      <form id="classicformpage" onSubmit={this.handleSubmit}>
         
-
+        <input type='hidden' value='something'/>
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
             <MDBContainer>
@@ -67,7 +123,6 @@ class Signup extends React.Component {
                     About Us
                   </Button>
                 </MDBAnimation>
-
                 <MDBCol md="6" xl="5" className="mb-4">
                   <MDBAnimation type="fadeInRight" delay=".3s">
                     <MDBCard id="classic-card">
@@ -81,12 +136,19 @@ class Signup extends React.Component {
                           iconClass="white-text"
                           label="Your name"
                           icon="user"
+                          name='displayName'
+                          value={this.state.displayName}
+                          onChange={this.handleChange}
                         />
                         <MDBInput
                           className="white-text"
                           iconClass="white-text"
                           label="Your email"
                           icon="envelope"
+                          name='email'
+                          value={this.state.email}
+                          onChange={this.handleChange}
+                          autoComplete = 'off'
                         />
                         <MDBInput
                           className="white-text"
@@ -94,6 +156,9 @@ class Signup extends React.Component {
                           label="Your password"
                           icon="lock"
                           type="password"
+                          name='passOne'
+                          value={this.state.passOne}
+                          onChange={this.handleChange}
                         />
                         <MDBInput
                           className="white-text"
@@ -101,7 +166,17 @@ class Signup extends React.Component {
                           label="Re-type password"
                           icon="lock"
                           type="password"
+                          name='passTwo'
+                          value={this.state.passTwo}
+                          onChange={this.handleChange}
                         />
+                        <MDBRow fluid>
+                              {this.state.errorMessage !== null ? (
+                                <FormError
+                                  theMessage={this.state.errorMessage}
+                                />
+                              ) : null}
+                        </MDBRow>
                         <div className="text-center mt-4">
                           <MDBBtn outline color="white">Sign Up</MDBBtn>
                           <hr className="hr-light" />
@@ -137,9 +212,7 @@ class Signup extends React.Component {
             </MDBContainer>
           </MDBMask>
         </MDBView>
-
-      
-      </div>
+      </form>
     );
   }
 }

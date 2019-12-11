@@ -38,7 +38,7 @@ function getProviderName (userid){
 
 				Promise.all([fetchUserrs])
 				.then(data => {
-					return data[0]
+					return data[0];
 					//console.log(data[0].name)
 					//usrlist = [...usrlist, data];
 					//console.log(usrlist)
@@ -53,28 +53,35 @@ export const ProvidersMain = props => {
     const { params: { index } } = props.match;
 
 	const [providers, setProviders] = useState([]);
+
+	const [services, setServices] = useState([]);
 	
 	const [userslist, setuserslist ] = useState(['']);
 
 	const [dataLoaded, setdataLoaded] = useState(false);
 
-	//const [endPoint, setendPoint] = useState('');
+	const [endPoint, setendPoint] = useState('');
 
 	const [collector, setCollector] = useState('');
 		
 	
-	const endPoint = apiConfig.apiUrl+'/provider';
+	//const endPoint = apiConfig.apiUrl+'/provider';
+
+	const serviceEndPoint = apiConfig.apiUrl+'/service';
 
 	useEffect(() => {
 		//console.log('PROVIDERS', providers)
 		//setendPoint(apiConfig.apiUrl+'/provider?filter[meta_key]=serviceid&filter[meta_value]='+index);
-	},[])
+
+		console.log(`${endPoint}`);
+		setendPoint(apiConfig.apiUrl+'/provider');
+	},[]);
 
 
 
 	useEffect(() => {
 			document.title = 'Providers';
-			console.log(`${endPoint}`)
+			console.log(`${endPoint}`);
 
 			const fetchProviders = fetch(`${endPoint}`)
 				.then(response => {
@@ -90,7 +97,7 @@ export const ProvidersMain = props => {
 
 				Promise.all([fetchProviders])
 				.then(data => {
-					setProviders(data[0])
+					setProviders(data[0]);
 				})
 				.catch(function(err) {
 					console.log("Error with resolving promises.", err);
@@ -98,15 +105,40 @@ export const ProvidersMain = props => {
 
 	},[endPoint]);
 
-	useEffect(()=>{
-		//console.log(providers)
 
-		providers.map((provider, index) => {
-			getProviderName(provider.acf.userid)
-		});
-		console.log(usrlist);
-		setdataLoaded(true);
-	},[providers])
+
+	
+
+	useEffect(()=>{
+		console.log(`${serviceEndPoint}`);
+
+		const fetchServices = fetch(`${serviceEndPoint}`)
+			.then(response => {
+				if (!response.ok) {
+					throw Error(response.statusText);
+				}
+				// Examine the text in the response
+				return response.json();
+			})
+			.catch(function(err) {
+				console.log("Fetch Error :-S", err);
+			});
+
+			Promise.all([fetchServices])
+			.then(data => {
+				setServices(data[0]);
+			})
+			.catch(function(err) {
+				console.log("Error with resolving promises.", err);
+			});
+	},[providers]);
+
+
+  const handleSelectChange = (e) => {
+	(e.target.value > 0) ? 	setendPoint(apiConfig.apiUrl+'/provider?filter[meta_key]=serviceid&filter[meta_value]='+e.target.value)
+	: setendPoint(apiConfig.apiUrl+'/provider');
+	console.log(`${endPoint}`);
+};
 	return (
         <React.Fragment>
            {/* <Container fluid>
@@ -118,21 +150,29 @@ export const ProvidersMain = props => {
 				<div className="container">
 					<div className="row">
 						<div className="col-4 align-self-start inputservices">
-							<select className="browser-default custom-select">
-							<option>Choose your service</option>
-							<option value="1">LANDSCAPE</option>
+							<select className="browser-default custom-select" onChange={handleSelectChange}>
+							<option value= {0}>Choose your service</option>
+							   {services && services.map (service => {
+								   return (
+									<option key = {service.acf.serviceID} value={service.acf.serviceID}>{service.acf.serviceTitle}</option>
+								   );
+
+							   	})
+							   }
+
+							{/* <option value="1">LANDSCAPE</option>
 							<option value="2">MAINTENANCE</option>
 							<option value="3">PAINTING</option>
 							<option value="4">PLUMBING</option>
 							<option value="5">REMODELING</option>
-							<option value="6">ROOFING</option>
+							<option value="6">ROOFING</option> */}
 							</select>
 						</div>	
 					</div>
 				</div>
            		<Container >
 					<Row>
-						{ !dataLoaded && <h5>No Providers found</h5> }
+						{/* { !dataLoaded && <h5>No Providers found</h5> } */}
 						{/* <AppContext.Consumer> */}
 							{/* {({ store }) => { */}
 								{ usrlist && providers && providers.map((provider, index) => {
