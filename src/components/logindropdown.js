@@ -137,7 +137,7 @@ class LoginDropDown extends Component {
         this.state.userloggedin = this.props.isLoggedIn
 
         let loggedInDropdown = [
-            <NavDropdown.Item >View my profile</NavDropdown.Item>,
+            <NavDropdown.Item href="/profile">View my profile</NavDropdown.Item>,
             // <NavDropdown.Item >Request a service</NavDropdown.Item>,
             <NavDropdown.Divider />,
             <NavDropdown.Item  eventKey = '99' onClick = {this.handleDropdownItemClick} >Log out</NavDropdown.Item>,
