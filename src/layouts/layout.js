@@ -5,6 +5,7 @@ import { Providers } from "../views/providers";
 import { ProvidersMain } from "../views/providersmain";
 import { Services } from "../views/services";
 import { ContactUs } from "../views/contactus";
+import { Profile } from "../views/profile";
 import About from "../views/about";
 import Signup from "../views/signup";
 
@@ -40,6 +41,7 @@ export const Layout = () => {
 						<Route path="/providers/:index" component={Providers} />
 						<Route path="/testmd/:index" component={Testmd} />
 						<Route path="/contactus" component={ContactUs} />
+						<Route path="/profile" component={Profile} />
 						<Route path="/about" component={About} />
 						<Route path="/signup" component={Signup} />
 						{/*<Route path="/profile" component={Profile} /> */}
