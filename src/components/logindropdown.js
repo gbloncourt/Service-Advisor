@@ -54,12 +54,12 @@ class LoginDropDown extends Component {
 
     handleDropdownItemClick = (event) => {
         this.setState({
-        loading: false,
-        token: "",
-        userID:"",
-        userNiceName: "",
-        userEmail: "",
-        loggedIn: false,
+            loading: false,
+            token: "",
+            userID:"",
+            userNiceName: "",
+            userEmail: "",
+            loggedIn: false,
         } )
 
         localStorage.removeItem( 'token');
