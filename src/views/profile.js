@@ -19,16 +19,6 @@ class Profile extends React.Component {
 
 	}
 
-    // const { params: { index } } = props.match;
-	// const [services, setServices] = useState([]);
-	// const [serviceEndPoint, setServiceEndPoint] = useState('');
-
-
-	// useEffect(() => {
-	// 	setServiceEndPoint(apiConfig.apiUrl+'/service');
-	// 	document.title = 'My Profile';
-	// },[]);
-
 	componentDidMount() {
 			const fetchServices = fetch(`${this.state.serviceEndPoint}`)
 			.then(response => {
@@ -64,7 +54,7 @@ class Profile extends React.Component {
 			{
 				return <Redirect to='/login' />
 			}
-			
+
 			return (
 				<Container >
 				<section className="contact-section my-5">
@@ -116,12 +106,6 @@ class Profile extends React.Component {
 															);
 															})
 														}
-														{/* <option value="1">LANDSCAPE</option>
-														<option value="2">MAINTENANCE</option>
-														<option value="3">PAINTING</option>
-														<option value="4">PLUMBING</option>
-														<option value="5">REMODELING</option>
-														<option value="6">ROOFING</option> */}
 													</select>
 												</div>
 											</div>                                   
