@@ -141,6 +141,11 @@ class Login extends React.Component {
     if (this.state.userIsLoggedIn === true) {
       return <Redirect to='/profile' />;
     }
+
+    if (!(localStorage.getItem('token') === null)	)
+    {
+      return <Redirect to='/profile' />
+    }
     
     return (
       <form id="classicformpage" onSubmit={this.handleSubmit}>  

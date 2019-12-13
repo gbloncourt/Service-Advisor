@@ -163,7 +163,11 @@ class Signup extends React.Component {
     if (this.state.userRegistered === true) {
       return <Redirect to='/profile' />
     }
-    
+    if (!(localStorage.getItem('token') === null)	)
+    {
+      return <Redirect to='/profile' />
+    }
+
     return (
       
       <form id="classicformpage" onSubmit={this.handleSubmit}>  
