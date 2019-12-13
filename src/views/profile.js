@@ -1,8 +1,13 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from "mdbreact";
 import { Container, Row, Col} from 'react-bootstrap';
+import { Redirect } from "react-router-dom";
 
 export const Profile = () => {
+	if ( localStorage.getItem('token') === null	)
+	{
+		return <Redirect to='/login' />
+	}
 	return (
 		<Container >
 		<section className="contact-section my-5">
