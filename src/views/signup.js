@@ -25,9 +25,7 @@ import { Link, Redirect } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "../styles/signup.css";
 
-
 import apiConfig from '../utils';
-
 
 import FormError from '../components/formerror';
 
@@ -42,13 +40,8 @@ class Signup extends React.Component {
       passOne: '',
       passTwo: '',
       errorMessage: null,
-      // rest_route : '/simple-jwt-login/v1/register',
-      
       userRegistered : false,
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
@@ -119,19 +112,12 @@ class Signup extends React.Component {
       const itemName = e.target.name;
       const itemValue = e.target.value;
       this.setState({ [itemName]: itemValue });
-      // this.setState({ [itemName]: itemValue }, () => {
-      //   if (this.state.passOne !== this.state.passTwo) {
-      //     this.setState({ errorMessage: 'Passwords no not match' });
-      //   } else {
-      //     this.setState({ errorMessage: null });
-      //   }
-      // });
     }
 
     validateField = () => {
       let result = false;
       if ((this.errorMessage == null) && ((this.state.displayName.length < 4))) {
-        this.setState({ errorMessage: 'Username is less than 4 characters' });
+        this.setState({ errorMessage: 'Username must be more than 4 characters' });
         result = false;
         return result;
       } else {
@@ -174,7 +160,7 @@ class Signup extends React.Component {
     );
 
     if (this.state.userRegistered === true) {
-      return <Redirect to='/' />
+      return <Redirect to='/profile' />
     }
     
     return (
