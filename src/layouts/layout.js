@@ -2,25 +2,23 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import injectContext from "../store/appcontext";
 import { Providers } from "../views/providers";
-import { ProvidersMain } from "../views/providersmain";
+import { ProvidersMain }  from "../views/providersmain";
 import { Services } from "../views/services";
 import { ContactUs } from "../views/contactus";
+import Login from "../views/login";
 import { Profile } from "../views/profile";
 import About from "../views/about";
 import Signup from "../views/signup";
 
-import Testmd from "../components/testmd"
-
-
 import ScrollToTop from "../components/scrolltotop";
 
-import NavbarMain from '../components/navbarmain'
+import NavbarMain from '../components/navbarmain';
 
 import Home from '../views/home';
 // import Home from '../views/signin';
 // import Home from '../views/profile';
 
-import { Footer } from '.././components/footer'
+import { Footer } from '.././components/footer';
 
 
 export const Layout = () => {
@@ -39,11 +37,11 @@ export const Layout = () => {
 						<Route path="/providersmain" component={ProvidersMain} />
 						<Route path="/services" component={Services} />
 						<Route path="/providers/:index" component={Providers} />
-						<Route path="/testmd/:index" component={Testmd} />
 						<Route path="/contactus" component={ContactUs} />
-						<Route path="/profile" component={Profile} />
 						<Route path="/about" component={About} />
+						<Route path="/profile" component={Profile} />
 						<Route path="/signup" component={Signup} />
+						<Route path="/login" component={Login} />
 						{/*<Route path="/profile" component={Profile} /> */}
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
