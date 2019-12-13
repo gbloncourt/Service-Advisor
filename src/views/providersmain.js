@@ -71,7 +71,7 @@ export const ProvidersMain = props => {
 
 	useEffect(() => {
 		//console.log('PROVIDERS', providers)
-		//setendPoint(apiConfig.apiUrl+'/provider?filter[meta_key]=serviceid&filter[meta_value]='+index);
+		//setendPoint(apiConfig.apiUrl+'/provider?filter[meta_key]=providerid&filter[meta_value]='+index);
 
 		console.log(`${endPoint}`);
 		setendPoint(apiConfig.apiUrl+'/provider');
@@ -164,13 +164,6 @@ export const ProvidersMain = props => {
 
 							   	})
 							   }
-
-							{/* <option value="1">LANDSCAPE</option>
-							<option value="2">MAINTENANCE</option>
-							<option value="3">PAINTING</option>
-							<option value="4">PLUMBING</option>
-							<option value="5">REMODELING</option>
-							<option value="6">ROOFING</option> */}
 							</select>
 						</div>	
 					</div>
