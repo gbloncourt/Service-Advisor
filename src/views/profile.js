@@ -1,9 +1,52 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from "mdbreact";
 import { Container, Row, Col} from 'react-bootstrap';
 import { Redirect } from "react-router-dom";
 
-export const Profile = () => {
+import apiConfig from '../utils';
+
+export const Profile = props => {
+
+    const { params: { index } } = props.match;
+
+	// const [providers, setProviders] = useState([]);
+
+	const [services, setServices] = useState([]);
+	
+	// const [dataLoaded, setdataLoaded] = useState(false);
+
+	const [serviceEndPoint, setServiceEndPoint] = useState('');
+
+	// const serviceEndPoint = apiConfig.apiUrl+'/service';
+
+	useEffect(() => {
+		setServiceEndPoint(apiConfig.apiUrl+'/service');
+		document.title = 'My Profile';
+	},[]);
+
+	useEffect(()=>{
+		console.log(`${serviceEndPoint}`);
+		const fetchServices = fetch(`${serviceEndPoint}`)
+			.then(response => {
+				if (!response.ok) {
+					throw Error(response.statusText);
+				}
+				// Examine the text in the response
+				return response.json();
+			})
+			.catch(function(err) {
+				console.log("Fetch Error :-S", err);
+			});
+
+			Promise.all([fetchServices])
+			.then(data => {
+				setServices(data[0]);
+			})
+			.catch(function(err) {
+				console.log("Error with resolving promises.", err);
+			});
+	},[serviceEndPoint]);
+
 	if ( localStorage.getItem('token') === null	)
 	{
 		return <Redirect to='/login' />
@@ -53,12 +96,18 @@ export const Profile = () => {
                                         <div className="col-4 align-self-start inputservices">
 											<select className="browser-default custom-select"> 
 												<option value= "0">Choose your service</option>
-												<option value="1">LANDSCAPE</option>
+												{services && services.map (service => {
+													return (
+														<option key = {service.acf.serviceID} value={service.acf.serviceID}>{service.acf.serviceTitle}</option>
+													);
+													})
+												}
+												{/* <option value="1">LANDSCAPE</option>
 												<option value="2">MAINTENANCE</option>
 												<option value="3">PAINTING</option>
 												<option value="4">PLUMBING</option>
 												<option value="5">REMODELING</option>
-												<option value="6">ROOFING</option>
+												<option value="6">ROOFING</option> */}
 											</select>
 										</div>
 									</div>                                   
