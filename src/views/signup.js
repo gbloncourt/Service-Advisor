@@ -142,6 +142,7 @@ class Signup extends React.Component {
             username: this.state.displayName,
             email: this.state.email,
             password: this.state.passOne,
+            role : 'author'
             //gbAuthKey : 'v3YCc$PT',
           };
         console.log(registrationInfo);

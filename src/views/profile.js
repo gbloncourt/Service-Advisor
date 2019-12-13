@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from "mdbreact";
 import { Container, Row, Col} from 'react-bootstrap';
 import { Redirect } from "react-router-dom";
-
+import axios from 'axios';
 import apiConfig from '../utils';
 
 class Profile extends React.Component {
@@ -14,7 +14,9 @@ class Profile extends React.Component {
 			  serviceEndPoint : (apiConfig.apiUrl+'/service'),
 			  companyName : '',
 			  companyPhone : '',
-			  companyWebsite : ''
+			  companyWebsite : '',
+			  error : '',
+			  loading: false
 		  }
 
 	}
@@ -47,6 +49,37 @@ class Profile extends React.Component {
 		const itemValue = e.target.value;
 		this.setState({ [itemName]: itemValue });
 	  }
+
+	
+	handleSubmit = (e) => {
+		var providerInfo = {
+			companyName: this.state.companyName,
+			companyPhone: this.state.companyPhone,
+			companyWebsite: this.state.companyWebsite,
+			//gbAuthKey : 'v3YCc$PT',
+		};
+		console.log(providerInfo);
+		this.addNewProvider(providerInfo);
+		e.preventDefault();
+	}
+	
+	addNewProvider = providerInfo => {
+		const siteUrl = apiConfig.apiUrl;
+    	this.setState( { loading: true }, () => {
+			axios.post( `${siteUrl}/provider`, providerInfo )
+				.then( res => {
+					if ( undefined === res.data.token ) {
+                        this.setState( { error: res.data.message, loading: false } );
+						return;
+					}
+                })
+				.catch( err => {
+							this.setState( { error: err.response.data.message, loading: false } );
+							this.setState({ errorMessage: 'Invalid Username or Password!'}); 
+          });
+      });
+
+	} 
 
 	render() {
 			const { services } = this.state;
@@ -87,8 +120,10 @@ class Profile extends React.Component {
 							</MDBCol>				
 						</MDBRow>				
 						<MDBRow>
+							
 							<MDBCol lg="12">
 								<MDBCardBody className="form">
+								<form id="classicformpage" onSubmit={this.handleSubmit}> 
 									<h3 className="mt-4">
 										<MDBIcon icon="tools" className="pr-2" />
 										Service Provider Information
@@ -174,8 +209,10 @@ class Profile extends React.Component {
 											<MDBBtn color="secondary">Submit</MDBBtn>
 										</MDBCol>
 									</MDBRow>
+									</form>	
 								</MDBCardBody>
-							</MDBCol>				
+							</MDBCol>
+			
 						</MDBRow>
 					</MDBCard>
 				</section>

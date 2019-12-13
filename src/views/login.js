@@ -42,6 +42,8 @@ class Login extends React.Component {
       password: '',
       errorMessage: null,
       userIsLoggedIn : false,
+      error : '',
+      loading: false
     };
 
     this.handleChange = this.handleChange.bind(this);
