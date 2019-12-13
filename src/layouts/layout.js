@@ -6,7 +6,8 @@ import { ProvidersMain }  from "../views/providersmain";
 import { Services } from "../views/services";
 import { ContactUs } from "../views/contactus";
 import Login from "../views/login";
-import { Profile } from "../views/profile";
+import Profile from "../views/profile";
+import ServiceReview from "../views/servicereview";
 import About from "../views/about";
 import Signup from "../views/signup";
 
@@ -40,6 +41,7 @@ export const Layout = () => {
 						<Route path="/contactus" component={ContactUs} />
 						<Route path="/about" component={About} />
 						<Route path="/profile" component={Profile} />
+						<Route path="/servicereview/:index" component={ServiceReview} />						
 						<Route path="/signup" component={Signup} />
 						<Route path="/login" component={Login} />
 						{/*<Route path="/profile" component={Profile} /> */}
