@@ -5,7 +5,7 @@ import { ProviderCardMain } from "../components/providercardmain";
 import PropTypes from "prop-types";
 import { match } from "minimatch";
 import { Container, Row, Col} from 'react-bootstrap';
-
+import { Link, Redirect } from "react-router-dom";
 import apiConfig from '../utils';
 import axios from 'axios';
 
@@ -139,6 +139,11 @@ export const ProvidersMain = props => {
 	: setendPoint(apiConfig.apiUrl+'/provider');
 	console.log(`${endPoint}`);
 };
+
+	if ( localStorage.getItem('token') === null	)
+	{
+		return <Redirect to='/login' />
+	}
 	return (
         <React.Fragment>
            {/* <Container fluid>
