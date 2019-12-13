@@ -90,7 +90,7 @@ export function ProviderCard(props) {
 										</span>
 									</small>
 									<small>
-										<Link to={"#"} className="servicelink">
+										<Link to={"/servicereview/"+props.index} className="servicelink">
 											<span>Leave a review</span>
 										</Link>
 									</small>
