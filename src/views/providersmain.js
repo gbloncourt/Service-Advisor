@@ -74,7 +74,7 @@ export const ProvidersMain = props => {
 		//setendPoint(apiConfig.apiUrl+'/provider?filter[meta_key]=providerid&filter[meta_value]='+index);
 
 		console.log(`${endPoint}`);
-		setendPoint(apiConfig.apiUrl+'/provider');
+		setendPoint(apiConfig.apiUrl+'/provider?per_page=99');
 	},[]);
 
 
